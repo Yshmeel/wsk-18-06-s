@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C15</title>
+</head>
+<body>
+    <div class="square" style="width: 300px; height: 300px; position: absolute; top: 300px; left: 300px; background: red;"></div>
+
+    <script>
+        const square = document.querySelector('.square');
+    
+        window.addEventListener('mousemove', function(event) {
+          const xPos = event.clientX - window.innerWidth / 2;
+          const yPos = event.clientY - window.innerHeight / 2;
+    
+          const x = xPos / window.innerWidth * 200;
+          const y = yPos / window.innerHeight * 200;
+
+          square.style.left = x + 100 + 'px';
+          square.style.top = y + 100 + 'px';
+        });
+      </script>
+</body>
+</html>

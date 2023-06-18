@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B4</title>
+
+    <style type="text/css">
+        body {
+            padding: 100px;
+        }
+
+        label {
+            width: 128px;
+            border-radius: 36px;
+            height: 64px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .switch-animation-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 36px;
+            top: 50%;
+            height: 100%;
+            transform: translateY(-50%);
+            display: block;
+        }
+
+        span.switch-dot {
+            width: 24px;
+            height: 24px;
+            display: block;
+            background: #16fffd;
+            border-radius: 100%;
+            position: absolute;
+            top: 35%;
+            left: 20px;
+        }
+
+        #switch-checkbox:checked + label .switch-animation-bg {
+            background: #16fffd;
+            animation: active-animation-bg .2s;
+            right: 0;
+        }
+
+        #switch-checkbox:checked + label span.switch-dot {
+            background: #020085;
+            right: 20px;
+            left: unset;
+            transform: scale(0);
+            animation: active-dot-animation .2s ease .6s;
+            animation-fill-mode: forwards;
+        }
+
+        #switch-checkbox:not(:checked) + label .switch-animation-bg {
+            background: #020085;
+            animation: unactive-animation-bg .2s;
+            left: unset;
+            width: 100%;
+        }
+
+        #switch-checkbox:not(:checked) + label span.switch-dot {
+            background: #16fffd;
+            left: 20px;
+            right: unset;
+            transform: scale(0);
+            animation: unactive-dot-animation .2s ease .6s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes active-dot-animation {
+            0% {
+                transform: scale(0);
+            }
+
+            25% {
+                transform: scale(0.25);
+            }
+
+            45% {
+                transform: scale(0.45);
+            }
+
+            55% {
+                transform: scale(0.75);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            85% {
+                transform: scale(1);
+            }
+
+            95% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes active-animation-bg {
+            0% {
+                width: 24px;
+                height: 24px;
+                left: 20px;
+            }
+
+            25% {
+                width: 48px;
+                height: 48px;
+                left: 10px;
+            }
+
+            50% {
+                width: 64px;
+                height: 76px;
+                left: 0px;
+            }
+
+            75% {
+                width: 60%;
+                height: 80px;
+            }
+
+            85% {
+                width: 75%;
+                height: 80px;
+            }
+
+            95% {
+                width: 95%;
+                height: 80px;
+            }
+
+            100% {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @keyframes unactive-dot-animation {
+            0% {
+                transform: scale(0);
+            }
+
+            25% {
+                transform: scale(0.25);
+            }
+
+            45% {
+                transform: scale(0.45);
+            }
+
+            55% {
+                transform: scale(0.75);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            85% {
+                transform: scale(1);
+            }
+
+            95% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes unactive-animation-bg {
+            0% {
+                width: 24px;
+                height: 24px;
+                right: 20px;
+            }
+
+            25% {
+                width: 48px;
+                height: 48px;
+                right: 10px;
+            }
+
+            50% {
+                width: 64px;
+                height: 76px;
+                right: 0px;
+            }
+
+            75% {
+                width: 60%;
+                height: 80px;
+            }
+
+            85% {
+                width: 75%;
+                height: 80px;
+            }
+
+            95% {
+                width: 95%;
+                height: 80px;
+            }
+
+            100% {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="switch">
+        <input type="checkbox" style="display: none;" value="nnn" id="switch-checkbox">
+
+        <label for="switch-checkbox">
+            <span class="switch-animation-bg"></span>
+            <span class="switch-dot"></span>
+        </label>
+    </div>
+</body>
+</html>
